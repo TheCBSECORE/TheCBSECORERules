@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>THE CBSE CORE | Official Rules</title>
+    <title>THE CBSE CORE | Official Hub</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -18,7 +18,10 @@
             --text-dim: #a0a0a0;
             --white: #ffffff;
             --border: #2c323d;
+            --nav-height: 70px;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -26,245 +29,687 @@
             background-color: var(--dark-bg);
             color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Banner & Profile Section */
+        /* Navigation */
+        nav {
+            height: var(--nav-height);
+            background: rgba(11, 13, 17, 0.95);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links li a:hover, .nav-links li a.active {
+            color: var(--accent-red);
+        }
+
+        /* Transitions */
+        .page-section {
+            display: none;
+            padding: calc(var(--nav-height) + 40px) 20px 60px;
+            animation: fadeIn 0.5s ease forwards;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .page-section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Banner & Profile */
         .server-banner {
             width: 100%;
-            height: 250px;
-            background: url('corebanner.jpg') no-repeat center center;
+            height: 200px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('corebanner.jpg') no-repeat center center;
             background-size: cover;
+            border-radius: 12px;
             border-bottom: 4px solid var(--accent-red);
         }
 
-        .header-content {
-            text-align: center;
-            margin-top: -60px; /* Pulls logo up over banner */
-            padding: 0 20px 40px;
-        }
+        .hero-header { text-align: center; margin-top: -50px; margin-bottom: 40px; }
+        .server-logo { width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--dark-bg); box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
 
-        .server-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 5px solid var(--dark-bg);
-            background-color: var(--card-bg);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
+        /* Grid Layouts */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
 
-        .hero h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            margin: 15px 0 5px;
-            text-transform: uppercase;
-            color: var(--white);
-        }
-
-        /* Buttons */
-        .cta-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .btn-discord {
-            text-decoration: none;
-            background-color: var(--discord-blurple);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-weight: 700;
-            text-transform: uppercase;
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 8px;
             transition: 0.3s;
         }
-
-        .btn-discord:hover { background-color: #4752c4; transform: scale(1.05); }
-
-        /* Content Container */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        .card:hover { border-color: var(--accent-blue); }
 
         .section-header {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.6rem;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 8px;
-            margin: 40px 0 20px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        /* Rule Cards */
-        .rule-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-left: 5px solid var(--accent-blue);
-            padding: 15px 20px;
-            margin-bottom: 12px;
-            border-radius: 4px;
-        }
-
-        .ban-zone { border-left-color: var(--accent-red); }
-
-        .rule-title {
-            font-weight: 800;
             color: var(--white);
-            display: block;
-            text-transform: uppercase;
-            font-size: 0.9rem;
         }
 
+        /* Rule Specifics */
+        .rule-card { border-left: 5px solid var(--accent-blue); margin-bottom: 10px; }
+        .ban-zone { border-left-color: var(--accent-red); }
+        .rule-title { font-weight: 800; display: block; color: var(--white); font-size: 0.9rem; margin-bottom: 5px; }
         .highlight-red { color: var(--accent-red); font-weight: bold; }
 
-        /* Tutorial Section */
-        .tutorial-box {
-            background: #000;
-            padding: 20px;
+        /* Guide Styling */
+        .guide-cat { color: var(--accent-blue); font-weight: 900; margin-top: 25px; display: block; font-size: 1.1rem; }
+        .channel-link { color: #7289da; text-decoration: none; background: rgba(114, 137, 218, 0.1); padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+
+        /* Widget Container */
+        .vc-widget {
+            background: #2f3136;
             border-radius: 8px;
-            text-align: center;
-            margin-top: 30px;
-            border: 1px solid var(--border);
+            padding: 10px;
+            margin-top: 20px;
         }
 
-        .tutorial-gif {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
+        /* Buttons */
+        .btn-discord {
+            display: inline-block;
+            background: var(--discord-blurple);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
             margin-top: 15px;
         }
 
-        .bot-info {
-            background: rgba(230, 57, 70, 0.1);
-            padding: 15px;
-            border-radius: 5px;
-            border: 1px solid var(--accent-red);
-            text-align: center;
-            margin: 40px 0;
-        }
+.guide-redirect-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--discord-blurple);
+    color: white;
+    text-decoration: none;
+    padding: 18px 35px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(88, 101, 242, 0.3);
+}
 
-        .footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-dim);
-            font-size: 0.8rem;
-        }
+.guide-redirect-btn:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(88, 101, 242, 0.5);
+    background: #4752c4;
+}
+
+.guide-redirect-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.guide-redirect-btn:hover svg {
+    transform: translate(3px, -3px);
+}
+
+.guide-card {
+    transition: transform 0.3s ease;
+}
+
+.guide-card:hover {
+    border-color: var(--accent-blue);
+}
+        
+        .footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 0.8rem; }
+
+        .cmd-list p {
+    font-size: 0.85rem;
+    margin: 8px 0;
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+}
+
+.cmd-list span {
+    color: #fff;
+    font-family: monospace;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+    width: fit-content;
+    margin-bottom: 2px;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.admin-cmds span {
+    display: inline-block;
+    margin-right: 5px;
+    background: rgba(230, 57, 70, 0.1);
+    border-color: rgba(230, 57, 70, 0.2);
+    color: var(--accent-red);
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-question {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+}
+
+.faq-answer {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+.faq-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: var(--accent-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 5px 5px 5px 0;
+    transition: 0.3s;
+}
+
+.faq-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
+}
+
+.faq-item {
+    transition: 0.3s;
+}
+
+.faq-item:hover {
+    border-color: var(--accent-blue);
+    transform: translateX(5px);
+}
+
     </style>
 </head>
 <body>
 
+    <nav>
+        <ul class="nav-links">
+            <li><a onclick="showSection('main')" id="nav-main" class="active">Main</a></li>
+            <li><a onclick="showSection('rules')">Rules</a></li>
+            <li><a onclick="showSection('guide')">Server Guide</a></li>
+            <li><a onclick="showSection('bot')">Bot</a></li>
+            <li><a onclick="showSection('faq')">FAQ</a></li>
+        </ul>
+    </nav>
+
+<!-- SECTION: MAIN / ABOUT -->
+<section id="main" class="page-section active">
     <div class="server-banner"></div>
-
-    <header class="header-content">
-        <img src="ehre.gif" alt="Server Logo" class="server-logo">
-        <div class="hero">
-            <h1>THE CBSE CORE</h1>
-            <div class="cta-container">
-                <a href="https://discord.gg/EGmHRzUBQA" target="_blank" class="btn-discord">Join Official Server</a>
-            </div>
-        </div>
-    </header>
-
-<div class="container">
-
-        <!-- INSTANT BAN ZONE -->
-        <h2 class="section-header"><span style="color:var(--accent-red)">🚨</span> THE "INSTANT BAN" ZONE</h2>
-        <div class="grid">
-            <div class="rule-card ban-zone">
-                <span class="rule-title">1. RESPECT WOMEN (OUR MAIN RULE)</span>
-                <span class="rule-desc">Any disrespect, harassment, or abuse toward female members is an <span class="highlight-red">INSTANT PERMANENT BAN</span>. No warnings, no appeals.</span>
-            </div>
-            <div class="rule-card ban-zone">
-                <span class="rule-title">2. NO SELF-PROMOTION / DM ADVERTISING</span>
-                <span class="rule-desc">Advertising YouTube, Discord servers, or other platforms results in an Instant Ban. This includes unsolicited DMs to server members.</span>
-            </div>
-            <div class="rule-card ban-zone">
-                <span class="rule-title">3. NO SIMPING / FLIRTING</span>
-                <span class="rule-desc">This is for growth, not dating. Any form of simping or making members uncomfortable will result in an immediate permanent ban.</span>
-            </div>
-            <div class="rule-card ban-zone">
-                <span class="rule-title">4. ALT ACCOUNTS & LOYALTY</span>
-                <span class="rule-desc">One person, one account. All alts and main will be banned. We do not tolerate "snakes"—if you have an issue, tell staff or leave.</span>
-            </div>
-            <div class="rule-card ban-zone">
-                <span class="rule-title">5. THE 5-STRIKE & ACCOMPLICE POLICY</span>
-                <span class="rule-desc">5 Warnings = Instant Ban. If you lie for or cover for a rule-breaker, you receive the <span class="highlight-red">exact same punishment</span> as them.</span>
-            </div>
-        </div>
-
-        <!-- STUDY ETIQUETTE -->
-        <h2 class="section-header"><span style="color:var(--accent-blue)">📚</span> STUDY & VC ETIQUETTE</h2>
-        <div class="grid">
-            <div class="rule-card study-zone">
-                <span class="rule-title">STAY PRODUCTIVE</span>
-                <span class="rule-desc">Move to Chill Convo VCs if not studying. Idlers in focus areas will be moved by staff. The study environment is sacred.</span>
-            </div>
-            <div class="rule-card study-zone">
-                <span class="rule-title">RESOURCE PROTECTION</span>
-                <span class="rule-desc">Do not steal or copy our curated resources to other servers. This is theft of community effort and will be prosecuted.</span>
-            </div>
-            <div class="rule-card study-zone">
-                <span class="rule-title">CAM ONLY VC</span>
-                <span class="rule-desc">Do not join Cam VCs without a camera. Trollers will receive a Temporary Ban.</span>
-            </div>
-            <div class="rule-card study-zone">
-                <span class="rule-title">DO NOT INTERRUPT</span>
-                <span class="rule-desc">If someone is studying or actively helping another member in VC, do not interrupt them. Any behavior that annoys or distracts those working toward the server’s prime objective is unacceptable and will result in a Mute or Ban.</span>
-            </div>
-            <div class="rule-card study-zone">
-                <span class="rule-title">RESPECT THE ENVIRONMENT</span>
-                <span class="rule-desc">The study environment is sacred. Keep noise, jokes, and off-topic chatter out of designated focus zones.</span>
-            </div>
-            <div class="rule-card study-zone">
-                <span class="rule-title">DOUBT HELPERS</span>
-                <span class="rule-desc">Use specific channels. Do not interrupt active study/help sessions in VC. Noise and jokes are prohibited in focus zones.</span>
-            </div>
-        </div>
-
-        <!-- CHAT & CONDUCT -->
-        <h2 class="section-header"><span style="color:#ffb703">💬</span> CHAT & CONDUCT</h2>
-        <div class="grid">
-            <div class="rule-card chat-zone">
-                <span class="rule-title">FREEDOM OF SPEECH LIMITS</span>
-                <span class="rule-desc">Friendly arguments are fine, BUT this never applies to <span class="highlight-red">Women, Religion, Politics, or Racism</span>.</span>
-            </div>
-            <div class="rule-card chat-zone">
-                <span class="rule-title">NUDITY / NSFW / SPAM</span>
-                <span class="rule-desc">Nudity = 1-Day Timeout + Warning. No walls of text, emoji spam, or unnecessary @everyone tags.</span>
-            </div>
-            <div class="rule-card chat-zone">
-                <span class="rule-title">HELPER ETIQUETTE</span>
-                <span class="rule-desc">Respect Helpers' time. Do not ping for "stupid reasons" or non-academic issues. They are not your personal search engine.</span>
-            </div>
-        </div>
-
-        <!-- TICKETS & SUPPORT -->
-        <h2 class="section-header"><span style="color:#8ecae6">🎫</span> TICKETS & SUPPORT</h2>
-        <div class="grid">
-            <div class="rule-card support-zone">
-                <span class="rule-title">REPORTING & TICKETS</span>
-                <span class="rule-desc">DM the Server Bot or Create a Ticket for issues. Provide evidence (audio/screenshot). Troll tickets result in a Warning.</span>
-            </div>
-            <div class="rule-card support-zone">
-                <span class="rule-title">STAFF DISCRETION</span>
-                <span class="rule-desc">If a Moderator tells you to change the topic, do it immediately. <span class="highlight-red">Their word is final.</span></span>
-            </div>
-        </div>
-
-        <div class="tutorial-box">
-            <span class="rule-title">How to report a message</span>
-            <img src="report.gif" alt="How to report" class="tutorial-gif">
-        </div>
-
+    
+    <div class="hero-header" style="position: relative; z-index: 10; margin-top: -60px;">
+        <img src="ehre.gif" alt="Logo" class="server-logo" style="background: var(--card-bg); position: relative;">
+        <h1 style="font-family:'Oswald', sans-serif; font-size: 3.5rem; margin: 15px 0 5px; color: var(--white);">THE CBSE CORE</h1>
+        <p style="margin-bottom: 20px; color: var(--text-dim);">Empowering Indian Students since Dec 2025</p>
+        <a href="https://discord.gg/EGmHRzUBQA" target="_blank" class="btn-discord">Join Official Server</a>
     </div>
 
-    <footer class="footer">
-        <p>&copy; 2026 THE CBSE CORE | Made by NotLaksh_.</p>
-    </footer>
+    <div class="grid" style="margin-top: 40px;">
+        <!-- LIVE VC CARD -->
+        <div class="card" style="border-top: 4px solid var(--accent-blue); min-height: 200px;">
+            <h3 style="font-family:'Oswald'; font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                <span style="color: var(--accent-blue)">🔊</span> LIVE IN VOICE CHANNELS
+            </h3>
+            <div id="vc-user-list" style="margin-top: 15px;">
+                <p style="color: var(--text-dim); font-size: 0.85rem; font-style: italic;">Connecting to server...</p>
+            </div>
+        </div>
+
+        <!-- STATS CARD -->
+        <div class="card" style="border-top: 4px solid var(--accent-red);">
+            <h3 style="font-family:'Oswald'; font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                <span style="color: var(--accent-red)">📊</span> SERVER STATUS
+            </h3>
+            <div style="display: flex; gap: 30px; margin: 20px 0;">
+                <div>
+                    <span style="display:block; font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700;">Online</span>
+                    <span id="online-count" style="font-size: 1.8rem; font-weight: 900; color: #43b581;">--</span>
+                </div>
+                <div style="border-left: 2px solid var(--border); padding-left: 30px;">
+                    <span style="display:block; font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700;">Total Members</span>
+                    <span id="total-count" style="font-size: 1.8rem; font-weight: 900; color: var(--white);">400+</span>
+                </div>
+            </div>
+            <p style="font-size: 0.9rem; line-height: 1.5; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid var(--border);">
+                Founded by <strong>NotLaksh_</strong> and <strong>OkBye</strong> in Dec 2025, we are India's premier study collective for CBSE and Competitive exams.
+            </p>
+        </div>
+    </div>
+</section>
+
+    <!-- SECTION: RULES -->
+    <section id="rules" class="page-section">
+        <div class="container">
+
+            <!-- INSTANT BAN ZONE -->
+            <h2 class="section-header"><span style="color:var(--accent-red)">🚨</span> THE "INSTANT BAN" ZONE</h2>
+            <div class="grid">
+                <div class="rule-card ban-zone card">
+                    <span class="rule-title">1. RESPECT WOMEN (OUR MAIN RULE)</span>
+                    <span class="rule-desc">Any disrespect, harassment, or abuse toward female members is an <span class="highlight-red">INSTANT PERMANENT BAN</span>. No warnings, no appeals.</span>
+                </div>
+                <div class="rule-card ban-zone card">
+                    <span class="rule-title">2. NO SELF-PROMOTION / DM ADVERTISING</span>
+                    <span class="rule-desc">Advertising YouTube, Discord servers, or other platforms results in an Instant Ban. This includes unsolicited DMs to server members.</span>
+                </div>
+                <div class="rule-card ban-zone card">
+                    <span class="rule-title">3. NO SIMPING / FLIRTING</span>
+                    <span class="rule-desc">This is for growth, not dating. Any form of simping or making members uncomfortable will result in an immediate permanent ban.</span>
+                </div>
+                <div class="rule-card ban-zone card">
+                    <span class="rule-title">4. ALT ACCOUNTS & LOYALTY</span>
+                    <span class="rule-desc">One person, one account. All alts and main will be banned. We do not tolerate "snakes"—if you have an issue, tell staff or leave.</span>
+                </div>
+                <div class="rule-card ban-zone card">
+                    <span class="rule-title">5. THE 5-STRIKE & ACCOMPLICE POLICY</span>
+                    <span class="rule-desc">5 Warnings = Instant Ban. If you lie for or cover for a rule-breaker, you receive the <span class="highlight-red">exact same punishment</span> as them.</span>
+                </div>
+            </div>
+
+            <!-- STUDY ETIQUETTE -->
+            <h2 class="section-header"><span style="color:var(--accent-blue)">📚</span> STUDY & VC ETIQUETTE</h2>
+            <div class="grid">
+                <div class="rule-card study-zone card">
+                    <span class="rule-title">STAY PRODUCTIVE</span>
+                    <span class="rule-desc">Move to Chill Convo VCs if not studying. Idlers in focus areas will be moved by staff. The study environment is sacred.</span>
+                </div>
+                <div class="rule-card study-zone card">
+                    <span class="rule-title">RESOURCE PROTECTION</span>
+                    <span class="rule-desc">Do not steal or copy our curated resources to other servers. This is theft of community effort and will be prosecuted.</span>
+                </div>
+                <div class="rule-card study-zone card">
+                    <span class="rule-title">CAM ONLY VC</span>
+                    <span class="rule-desc">Do not join Cam VCs without a camera. Trollers will receive a Temporary Ban.</span>
+                </div>
+                <div class="rule-card study-zone card">
+                    <span class="rule-title">DO NOT INTERRUPT</span>
+                    <span class="rule-desc">If someone is studying or actively helping another member in VC, do not interrupt them. Any behavior that annoys or distracts those working toward the server’s prime objective is unacceptable and will result in a Mute or Ban.</span>
+                </div>
+                <div class="rule-card study-zone card">
+                    <span class="rule-title">RESPECT THE ENVIRONMENT</span>
+                    <span class="rule-desc">The study environment is sacred. Keep noise, jokes, and off-topic chatter out of designated focus zones.</span>
+                </div>
+                <div class="rule-card study-zone card">
+                    <span class="rule-title">DOUBT HELPERS</span>
+                    <span class="rule-desc">Use specific channels. Do not interrupt active study/help sessions in VC. Noise and jokes are prohibited in focus zones.</span>
+                </div>
+            </div>
+
+            <!-- CHAT & CONDUCT -->
+            <h2 class="section-header"><span style="color:#ffb703">💬</span> CHAT & CONDUCT</h2>
+            <div class="grid">
+                <div class="rule-card chat-zone card">
+                    <span class="rule-title">FREEDOM OF SPEECH LIMITS</span>
+                    <span class="rule-desc">Friendly arguments are fine, BUT this never applies to <span class="highlight-red">Women, Religion, Politics, or Racism</span>.</span>
+                </div>
+                <div class="rule-card chat-zone card">
+                    <span class="rule-title">NUDITY / NSFW / SPAM</span>
+                    <span class="rule-desc">Nudity = 1-Day Timeout + Warning. No walls of text, emoji spam, or unnecessary @everyone tags.</span>
+                </div>
+                <div class="rule-card chat-zone card">
+                    <span class="rule-title">HELPER ETIQUETTE</span>
+                    <span class="rule-desc">Respect Helpers' time. Do not ping for "stupid reasons" or non-academic issues. They are not your personal search engine.</span>
+                </div>
+            </div>
+
+            <!-- TICKETS & SUPPORT -->
+            <h2 class="section-header"><span style="color:#8ecae6">🎫</span> TICKETS & SUPPORT</h2>
+            <div class="grid">
+                <div class="rule-card support-zone card">
+                    <span class="rule-title">REPORTING & TICKETS</span>
+                    <span class="rule-desc">DM the Server Bot or Create a Ticket for issues. Provide evidence (audio/screenshot). Troll tickets result in a Warning.</span>
+                </div>
+                <div class="rule-card support-zone card">
+                    <span class="rule-title">STAFF DISCRETION</span>
+                    <span class="rule-desc">If a Moderator tells you to change the topic, do it immediately. <span class="highlight-red">Their word is final.</span></span>
+                </div>
+            </div>
+
+            <!-- TUTORIAL -->
+            <div class="tutorial-box card" style="text-align: center; margin-top: 40px;">
+                <span class="rule-title" style="font-size: 1.2rem; margin-bottom: 10px;">How to report a message</span>
+                <img src="report.gif" alt="How to report" class="tutorial-gif" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+            </div>
+
+        </div>
+    </section>
+
+<!-- SECTION: SERVER GUIDE -->
+<section id="guide" class="page-section">
+    <div class="dashboard-container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        
+        <!-- Header Info -->
+        <h2 class="section-header" style="justify-content: center; border: none; font-size: 2.5rem;">
+            <span style="color: var(--accent-blue)">🧭</span> NAVIGATE THE CORE
+        </h2>
+        <p style="color: var(--text-dim); margin-bottom: 40px;">Explore our ecosystem. From academic resources to the economy, everything is one click away.</p>
+
+        <!-- The Interactive Card -->
+        <div class="guide-card" style="background: linear-gradient(145deg, #161a21, #0b0d11); border: 1px solid var(--border); border-radius: 20px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); position: relative; overflow: hidden;">
+            
+            <!-- Animated Background Glow -->
+            <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: var(--accent-blue); filter: blur(100px); opacity: 0.2;"></div>
+
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; margin-bottom: 40px;">
+                <div style="padding: 15px; border-left: 2px solid var(--accent-blue); background: rgba(255,255,255,0.02);">
+                    <h4 style="margin: 0; color: #fff;">📚 Academic Hub</h4>
+                    <p style="font-size: 0.8rem; color: var(--text-dim); margin: 5px 0;">Class IX, X, JEE & NEET resources.</p>
+                </div>
+                <div style="padding: 15px; border-left: 2px solid var(--accent-red); background: rgba(255,255,255,0.02);">
+                    <h4 style="margin: 0; color: #fff;">⚖️ Essential Rules</h4>
+                    <p style="font-size: 0.8rem; color: var(--text-dim); margin: 5px 0;">Our core values and guidelines.</p>
+                </div>
+                <div style="padding: 15px; border-left: 2px solid #ffb703; background: rgba(255,255,255,0.02);">
+                    <h4 style="margin: 0; color: #fff;">💰 Core Economy</h4>
+                    <p style="font-size: 0.8rem; color: var(--text-dim); margin: 5px 0;">Earn coins and shop for roles.</p>
+                </div>
+            </div>
+
+            <!-- THE REDIRECT BUTTON -->
+            <a href="https://discord.com/channels/1312809906986024960/1468319620598595668" target="_blank" class="guide-redirect-btn">
+                <span>OPEN OFFICIAL SERVER GUIDE</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            
+            <p style="margin-top: 20px; font-size: 0.75rem; color: var(--text-dim);">You will be redirected to the #server-guide channel on Discord.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION: BOT COMMANDS -->
+<section id="bot" class="page-section">
+    <h2 class="section-header">🤖 BOT DIRECTORY</h2>
+    <p style="color: var(--text-dim); margin-bottom: 30px;">Complete list of commands for THE CBSE CORE integrated bot system.</p>
+
+    <div class="grid">
+        <!-- STUDY TOOLS -->
+        <div class="card" style="border-top: 3px solid var(--accent-blue);">
+            <h3 style="color:var(--accent-blue); font-size: 1.1rem; margin-top: 0;">📖 Study Tools</h3>
+            <div class="cmd-list">
+                <p><span>/formulas</span> View PCM formula sheets</p>
+                <p><span>/list_resources</span> Resources by class level</p>
+                <p><span>/find_resource</span> Search study resources</p>
+                <p><span>/remind</span> Set a reminder</p>
+                <p><span>/edit_remind</span> Edit your reminder</p>
+                <p><span>/afk</span> Set AFK status</p>
+                <p><span>/remove_afk</span> Remove AFK status</p>
+                <p><span>/check</span> View your todo list</p>
+                <p><span>/todo</span> Add task to todo list</p>
+            </div>
+        </div>
+
+        <!-- UTILITY -->
+        <div class="card" style="border-top: 3px solid #00f5d4;">
+            <h3 style="color:#00f5d4; font-size: 1.1rem; margin-top: 0;">🛠️ Utility</h3>
+            <div class="cmd-list">
+                <p><span>/help</span> Shows directory</p>
+                <p><span>/motivate</span> Board exam strategies</p>
+                <p><span>/leaderboard</span> View rankings</p>
+                <p><span>/ping</span> Bot latency</p>
+                <p><span>/profile</span> Check profile</p>
+                <p><span>/set_bio</span> Set profile bio</p>
+                <p><span>/social</span> Server social links</p>
+                <p><span>/lofi</span> Lofi collection</p>
+            </div>
+        </div>
+
+        <!-- ECONOMY -->
+        <div class="card" style="border-top: 3px solid #ffb703;">
+            <h3 style="color:#ffb703; font-size: 1.1rem; margin-top: 0;">💰 Economy</h3>
+            <div class="cmd-list">
+                <p><span>core bal</span> View balance</p>
+                <p><span>core daily</span> Claim daily coins</p>
+                <p><span>core work</span> Work for coins</p>
+                <p><span>core rob</span> Rob another user</p>
+                <p><span>core cf</span> Flip a coin</p>
+                <p><span>core give</span> Transfer coins</p>
+                <p><span>core with</span> Withdraw from bank</p>
+                <p><span>core dep</span> Deposit to bank</p>
+                <p><span>core shop</span> View Core Shop</p>
+                <p><span>core buy</span> Buy roles/items</p>
+                <p><span>core lb</span> Economy leaderboard</p>
+            </div>
+        </div>
+
+        <!-- CUSTOM VC -->
+        <div class="card" style="border-top: 3px solid #9b5de5;">
+            <h3 style="color:#9b5de5; font-size: 1.1rem; margin-top: 0;">🔊 Custom VC</h3>
+            <div class="cmd-list">
+                <p><span>/edit_room</span> Edit room settings</p>
+                <p><span>/room_privacy</span> Set privacy</p>
+                <p><span>/invite</span> Invite someone</p>
+                <p><span>/forcemute</span> Force mute user</p>
+                <p><span>/remove_custom</span> Kick from VC</p>
+                <p><span>/room_owner</span> View owner</p>
+                <p><span>/transfer_custom</span> Transfer ownership</p>
+            </div>
+        </div>
+
+        <!-- FUN -->
+        <div class="card" style="border-top: 3px solid #f15bb5;">
+            <h3 style="color:#f15bb5; font-size: 1.1rem; margin-top: 0;">🎈 Fun</h3>
+            <div class="cmd-list">
+                <p><span>/8ball | /kiss | /slap | /kill</span></p>
+                <p><span>/rizz | /pp | /rizz_meter | /ester</span></p>
+                <p><span>/spank | /pat | /make_quote | /worse</span></p>
+            </div>
+        </div>
+
+        <!-- MUSIC -->
+        <div class="card" style="border-top: 3px solid #fee440;">
+            <h3 style="color:#fee440; font-size: 1.1rem; margin-top: 0;">🎵 Music</h3>
+            <div class="cmd-list">
+                <p><span>/upload_playlist</span> Add new playlist</p>
+                <p><span>/playlist</span> Shows all playlists</p>
+            </div>
+        </div>
+
+        <!-- ADMIN ONLY -->
+        <div class="card" style="border-top: 3px solid var(--accent-red); grid-column: span 1;">
+            <h3 style="color:var(--accent-red); font-size: 1.1rem; margin-top: 0;">🛡️ Admin Only</h3>
+            <div class="cmd-list admin-cmds">
+                <p><span>dm</span> <span>add_resource</span> <span>secure</span></p>
+                <p><span>send_app</span> <span>remove_resource</span> <span>message</span></p>
+                <p><span>embed</span> <span>edit_embed</span> <span>edit_message</span></p>
+                <p><span>formal_message</span> <span>close</span></p>
+                <p style="border-top: 1px solid var(--border); padding-top: 5px; margin-top: 5px;">
+                    <strong>Mod:</strong> ban, kick, warn, unwarn, timeout
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION: FAQ -->
+<section id="faq" class="page-section">
+    <h2 class="section-header">❓ FREQUENTLY ASKED QUESTIONS</h2>
+    
+    <div class="faq-container">
+        <!-- ABOUT THE SERVER -->
+        <div class="faq-item card">
+            <h3 class="faq-question">🌐 About THE CBSE CORE</h3>
+            <div class="faq-answer">
+                <p>Founded in <strong>December 2025</strong> by <strong>NotLaksh_</strong> and <strong>OkBye</strong>, THE CBSE CORE is a premier digital collective for Indian students. We provide a high-performance ecosystem for Class IX, X, JEE, and NEET aspirants to study, collaborate, and grow.</p>
+            </div>
+        </div>
+
+        <!-- ABOUT THE OWNERS -->
+        <div class="faq-item card">
+            <h3 class="faq-question">👑 About the Owners</h3>
+            <div class="faq-answer">
+                <p>The server is led by <strong>NotLaksh_</strong> and <strong>OkBye</strong>. Their vision was to create a distraction-free, resource-rich environment that levels the playing field for every Indian student, regardless of their coaching or background.</p>
+            </div>
+        </div>
+
+        <!-- STUDY ENVIRONMENT -->
+        <div class="faq-item card">
+            <h3 class="faq-question">📖 Study Environment & Resources</h3>
+            <div class="faq-answer">
+                <p>Our environment is built on <strong>Productivity</strong>. We provide curated notes, formula sheets, and a master resource database. To maintain focus, we enforce strict noise and behavior rules in our designated Study VCs.</p>
+                <div style="margin-top: 10px;">
+                    <a href="https://discord.com/channels/1312809906986024960/1483515514130272458" target="_blank" class="faq-btn">🔍 Find a Resource (/find_resources)</a>
+                    <a href="https://discord.com/channels/1312809906986024960/1453793695387095113" target="_blank" class="faq-btn" style="background: var(--accent-red);">📤 Add a Resource</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- LION BOT / STUDY TIME -->
+        <div class="faq-item card">
+            <h3 class="faq-question">🦁 How do I check my Study Time?</h3>
+            <div class="faq-answer">
+                <p>We use <strong>Lion Bot</strong> to track every second of your hard work. You can check your stats, rank up on the leaderboard, and set study goals.</p>
+                <a href="https://www.lionbot.org/" target="_blank" class="faq-btn" style="background: #ffb703; color: #000;">Check My Study Time (Lion Bot)</a>
+            </div>
+        </div>
+
+        <!-- REPORTING -->
+        <div class="faq-item card">
+            <h3 class="faq-question">🚨 I want to report someone</h3>
+            <div class="faq-answer">
+                <p>Safety is our priority. If someone is breaking rules, DM the Server Bot or open a Support Ticket immediately. Ensure you have screenshots or audio evidence.</p>
+                <div style="text-align: center; margin-top: 15px;">
+                    <img src="report.gif" alt="How to report" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                    <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 5px;">Follow this process to report a message</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STAFF APPLICATIONS -->
+        <div class="faq-item card">
+            <h3 class="faq-question">🛡️ I want to apply for Staff</h3>
+            <div class="faq-answer">
+                <p>We are always looking for dedicated individuals to help moderate and grow the community. Check requirements and apply below:</p>
+                <a href="https://discord.com/channels/1312809906986024960/1468651603732074680" target="_blank" class="faq-btn" style="background: #5865F2;">Open Staff Applications</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <script>
+        function showSection(id) {
+            // Hide all sections
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show target section
+            document.getElementById(id).classList.add('active');
+            
+            // Update Nav Links
+            document.querySelectorAll('.nav-links li a').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+<script>
+async function updateServerStats() {
+    const widgetID = "1312809906986024960";
+    const onlineCountSpan = document.getElementById('online-count');
+    const totalCountSpan = document.getElementById('total-count');
+    const vcListDiv = document.getElementById('vc-user-list');
+
+    // 1. Fetch Total Members (Independent Fetch)
+    fetch(`https://api.discordcodes.com/v1/server/${widgetID}`)
+        .then(res => res.json())
+        .then(data => {
+            if (data && data.approximate_member_count) {
+                totalCountSpan.innerText = data.approximate_member_count.toLocaleString();
+            }
+        })
+        .catch(() => console.log("Total API Sleepy..."));
+
+    // 2. Fetch Widget Data (VC + Online)
+    try {
+        const response = await fetch(`https://discord.com/api/guilds/${widgetID}/widget.json`);
+        const data = await response.json();
+
+        onlineCountSpan.innerText = data.presence_count;
+
+        const channelMap = {};
+        data.channels.forEach(ch => { channelMap[ch.id] = ch.name; });
+
+        const membersInVC = data.members.filter(m => m.channel_id !== undefined);
+
+        if (membersInVC.length === 0) {
+            vcListDiv.innerHTML = `<p style="color: var(--text-dim); font-size: 0.85rem; font-style: italic;">The VCs are quiet right now...</p>`;
+        } else {
+            let html = '<div style="display: flex; flex-direction: column; gap: 8px;">';
+            membersInVC.forEach(member => {
+                const channelName = channelMap[member.channel_id] || "Active VC";
+                html += `
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 8px; background: rgba(255,255,255,0.03); border-radius: 6px; border: 1px solid var(--border);">
+                        <img src="${member.avatar_url}" style="width: 30px; height: 30px; border-radius: 50%; border: 2px solid #43b581;">
+                        <div style="overflow: hidden;">
+                            <span style="font-weight: 700; display: block; font-size: 0.8rem; color: #fff;">${member.username}</span>
+                            <span style="font-size: 0.65rem; color: var(--accent-blue); font-weight: 600;">🔈 ${channelName}</span>
+                        </div>
+                    </div>`;
+            });
+            html += '</div>';
+            vcListDiv.innerHTML = html;
+        }
+    } catch (e) {
+        vcListDiv.innerHTML = `<p style="color: var(--accent-red); font-size: 0.8rem;">Widget not responding. Check Discord settings.</p>`;
+    }
+}
+
+updateServerStats();
+setInterval(updateServerStats, 30000);
+</script>
 
 </body>
 </html>
