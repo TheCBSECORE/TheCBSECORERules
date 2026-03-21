@@ -377,21 +377,87 @@
 .empty-slot {
     opacity: 0.7;
 }        
-        
+/* Clean Tutorial Section Styling */
+#tutorials .tutorial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.tut-card {
+    background: linear-gradient(145deg, #161a21, #0b0d11);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.tut-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-red);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+.tut-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.tut-card:hover img {
+    opacity: 1;
+}
+
+.tut-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border: 1px solid rgba(255,255,255,0.1);
+    z-index: 5;
+}
+
+.tut-info {
+    padding: 20px;
+}
+
+.tut-info h4 {
+    margin: 0 0 8px 0;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.tut-info p {
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}        
     </style>
 </head>
 <body>
 
     <nav>
-        <ul class="nav-links">
-            <li><a onclick="showSection('main')" id="nav-main" class="active">Main</a></li>
-            <li><a onclick="showSection('rules')">Rules</a></li>
-            <li><a onclick="showSection('guide')">Server Guide</a></li>
-            <li><a onclick="showSection('bot')">Bot</a></li>
-            <li><a onclick="showSection('faq')">FAQ</a></li>
-            <li><a onclick="showSection('socials')">Socials</a></li>
-        </ul>
-    </nav>
+    <ul class="nav-links">
+        <li><a onclick="showSection('main')" id="nav-main" class="active">Main</a></li>
+        <li><a onclick="showSection('rules')">Rules</a></li>
+        <li><a onclick="showSection('guide')">Server Guide</a></li>
+        <li><a onclick="showSection('tutorials')">Tutorials</a></li> <!-- New Link -->
+        <li><a onclick="showSection('bot')">Bot</a></li>
+        <li><a onclick="showSection('faq')">FAQ</a></li>
+        <li><a onclick="showSection('socials')">Socials</a></li>
+    </ul>
+</nav>
 
 <!-- SECTION: MAIN / ABOUT -->
 <section id="main" class="page-section active">
@@ -664,6 +730,56 @@
         </div>
     </div>
 </section>
+
+<!-- SECTION: TUTORIALS -->
+<section id="tutorials" class="page-section" style="display: none;">
+    <div class="dashboard-container" style="max-width: 1000px; margin: 0 auto; text-align: center;">
+        
+        <h2 class="section-header" style="justify-content: center; border: none; font-size: 2.5rem;">
+            <span style="color: var(--accent-red)">🚀</span> QUICK TUTORIALS
+        </h2>
+        <p style="color: var(--text-dim); margin-bottom: 40px;">Visual guides to help you navigate the CBSE CORE ecosystem.</p>
+
+        <div class="tutorial-grid">
+            
+            <!-- Resource Card -->
+            <div class="tut-card">
+                <div class="tut-tag" style="border-color: #00f5d4; color: #00f5d4;">LIBRARY</div>
+                <img src="resource.gif" alt="Resources">
+                <div class="tut-info">
+                    <h4>Find Study Materials</h4>
+                    <p>Search via channel categories to find Grade IX-XII notes and JEE/NEET modules.</p>
+                </div>
+            </div>
+
+            <!-- Roles Card -->
+            <div class="tut-card">
+                <div class="tut-tag" style="border-color: #9b5de5; color: #9b5de5;">PROFILE</div>
+                <img src="roles.gif" alt="Roles">
+                <div class="tut-info">
+                    <h4>Claim Your Roles</h4>
+                    <p>Unlock subject channels by selecting your Grade and Stream in #self-roles.</p>
+                </div>
+            </div>
+
+            <!-- Core Card -->
+            <div class="tut-card">
+                <div class="tut-tag" style="border-color: #ffb703; color: #ffb703;">ECONOMY</div>
+                <img src="core.gif" alt="Economy">
+                <div class="tut-info">
+                    <h4>Master the Economy</h4>
+                    <p>Earn coins daily and spend them in the server shop for premium perks.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Return Action -->
+        <div style="margin-top: 50px;">
+            <a onclick="showSection('main')" style="cursor: pointer; color: var(--text-dim); font-size: 0.9rem; text-decoration: underline;">← Back to Main Dashboard</a>
+        </div>
+    </div>
+</section>    
 
 <!-- SECTION: BOT COMMANDS -->
 <section id="bot" class="page-section">
