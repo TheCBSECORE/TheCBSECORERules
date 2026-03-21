@@ -377,11 +377,26 @@
 .empty-slot {
     opacity: 0.7;
 }        
-.tutorial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-.tut-card { background: linear-gradient(145deg, #161a21, #0b0d11); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: 0.3s; position: relative; text-align: left; }
-.tut-card:hover { transform: translateY(-8px); border-color: var(--accent-red) !important; }
-.tut-card img { width: 100%; height: 160px; object-fit: cover; opacity: 0.8; }
-.tut-tag { position: absolute; top: 15px; right: 15px; background: rgba(0, 0, 0, 0.7); padding: 4px 12px; border-radius: 10px; font-size: 0.7rem; font-weight: 700; border: 1px solid var(--border); z-index: 5; }     
+.tut-card-large {
+    background: linear-gradient(145deg, #161a21, #0b0d11);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+.tut-card-large img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+}
+.tut-info-large {
+    padding: 35px;
+    text-align: left;
+    border-top: 1px solid var(--border);
+}
+.tut-info-large h4 { font-size: 1.8rem; margin: 0 0 10px 0; color: #fff; }
+.tut-info-large p { color: var(--text-dim); line-height: 1.6; font-size: 1.05rem; } 
     </style>
 </head>
 <body>
@@ -670,29 +685,60 @@
     </div>
 </section>
 
-<section id="tutorials" class="page-section" style="display: none;">
-    <div class="dashboard-container" style="max-width: 1000px; margin: 0 auto; text-align: center;">
-        <h2 class="section-header" style="justify-content: center; border: none; font-size: 2.5rem;"><span style="color: var(--accent-red)">🚀</span> QUICK TUTORIALS</h2>
-        <div class="tutorial-grid">
-            <div class="tut-card">
-                <div class="tut-tag" style="color: #00f5d4;">RESOURCES</div>
-                <img src="resource.gif">
-                <div class="tut-info"><h4>Find Study Materials</h4><p>Search via channel categories to find Grade IX-XII notes.</p></div>
-            </div>
-            <div class="tut-card">
-                <div class="tut-tag" style="color: #9b5de5;">PROFILE</div>
-                <img src="roles.gif">
-                <div class="tut-info"><h4>Claim Your Roles</h4><p>Unlock subject channels by selecting your Grade in #self-roles.</p></div>
-            </div>
-            <div class="tut-card">
-                <div class="tut-tag" style="color: #ffb703;">ECONOMY</div>
-                <img src="core.gif">
-                <div class="tut-info"><h4>Master Economy</h4><p>Earn coins daily and spend them in the server shop.</p></div>
-            </div>
+<section id="tutorials" class="page-section" style="display: none; padding: 60px 20px;">
+    <div class="dashboard-container" style="max-width: 900px; margin: 0 auto; text-align: center;">
+        
+        <div style="margin-bottom: 60px;">
+            <h2 class="section-header" style="justify-content: center; border: none; font-size: 3rem; margin-bottom: 10px;">
+                <span style="color: var(--accent-red)">🚀</span> QUICK TUTORIALS
+            </h2>
+            <p style="color: var(--text-dim); font-size: 1.1rem;">Master the CBSE CORE ecosystem with these visual guides.</p>
         </div>
-        <div style="margin-top: 50px;"><a onclick="showSection('main')" style="cursor: pointer; color: var(--text-dim); text-decoration: underline;">← Back to Main Dashboard</a></div>
+
+        <div class="tutorial-stack" style="display: flex; flex-direction: column; gap: 50px;">
+            
+            <div class="tut-card-large">
+                <div class="tut-img-container">
+                    <span class="tut-tag-large" style="color: #00f5d4; border-color: #00f5d4;">RESOURCES</span>
+                    <img src="resource.gif" alt="Resources">
+                </div>
+                <div class="tut-info-large">
+                    <h4>Find Study Materials</h4>
+                    <p>Stop scrolling endlessly. Head to the <b>#resources</b> category and use the Discord search bar (<code>in: #resources</code>) to find specific Grade IX-XII notes, JEE modules, and NEET preparation materials instantly.</p>
+                </div>
+            </div>
+
+            <div class="tut-card-large">
+                <div class="tut-img-container">
+                    <span class="tut-tag-large" style="color: #9b5de5; border-color: #9b5de5;">PROFILE</span>
+                    <img src="roles.gif" alt="Roles">
+                </div>
+                <div class="tut-info-large">
+                    <h4>Claim Your Roles</h4>
+                    <p>Customize your experience! Visit <b>#self-roles</b> and interact with the buttons to select your Grade and Stream. This unlocks hidden subject channels and ensures you only get the pings you actually want.</p>
+                </div>
+            </div>
+
+            <div class="tut-card-large">
+                <div class="tut-img-container">
+                    <span class="tut-tag-large" style="color: #ffb703; border-color: #ffb703;">ECONOMY</span>
+                    <img src="core.gif" alt="Economy">
+                </div>
+                <div class="tut-info-large">
+                    <h4>Master The Economy</h4>
+                    <p>Our server has a full economy system. Use <code>/daily</code> every 24 hours to stack coins, and <code>/work</code> to earn more. Once you're rich, check out the <code>/shop</code> to buy custom roles, colorful names, and VIP perks.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 60px; padding-bottom: 40px;">
+            <button onclick="showSection('main')" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s;" onmouseover="this.style.background='var(--accent-red)'; this.style.borderColor='var(--accent-red)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='var(--border)'">
+                ← Return to Main Dashboard
+            </button>
+        </div>
     </div>
-</section>   
+</section>
 
 <!-- SECTION: BOT COMMANDS -->
 <section id="bot" class="page-section">
