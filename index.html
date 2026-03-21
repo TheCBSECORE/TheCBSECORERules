@@ -301,10 +301,12 @@
 .staff-mini-grid {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 15px;
-    flex-wrap: wrap;
-    max-width: 900px;
+    flex-wrap: wrap; /* This ensures staff chips wrap to the next line */
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .staff-chip {
@@ -316,6 +318,7 @@
     border-radius: 12px;
     border: 1px solid var(--border);
     transition: 0.2s;
+    flex-shrink: 0; /* Prevents the chips from squishing */
 }
 
 .staff-chip:hover {
@@ -604,7 +607,7 @@ CBSE CORE is where discipline meets enjoyment. Join us and stop prepping alone.
     </div>
 </div>
 
-<div style="text-align: center;">
+<div style="text-align: center; margin-top: 40px;">
     <h2 class="section-header" style="justify-content: center; border: none; font-size: 1.2rem; color: var(--text-dim);">🛡️ SUPPORT SQUAD</h2>
     <div class="staff-mini-grid">
         <div class="staff-chip empty-chip">
@@ -613,26 +616,27 @@ CBSE CORE is where discipline meets enjoyment. Join us and stop prepping alone.
         </div>
         
         <div class="staff-chip">
-            <img src="https://images-ext-1.discordapp.net/external/SPOo4lZk-BtRKHfV_j5hzJIq5kujbkx7BQ6YoPaVZgQ/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/847055747720544276/b1b615149d2c821327a492365dea980a.png?format=webp&quality=lossless">
+            <img src="https://images-ext-1.discordapp.net/external/SPOo4lZk-BtRKHfV_j5hzJIq5kujbkx7BQ6YoPaVZgQ/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/847055747720544276/b1b615149d2c821327a492365dea980a.png?format=webp&quality=lossless" alt="PFP">
             <span>R.o.x.x.x.s <small>(Jr. Mod)</small></span>
         </div>
+
         <div class="staff-chip">
-            <img src="https://images-ext-1.discordapp.net/external/7sBs1q84frrU3Cz1XF3zOgi-hZg06Ff58TS0mISZK04/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1394245880550264875/c571e3e2670b00f41e8d3432e3536653.png?format=webp&quality=lossless">
+            <img src="https://images-ext-1.discordapp.net/external/7sBs1q84frrU3Cz1XF3zOgi-hZg06Ff58TS0mISZK04/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1394245880550264875/c571e3e2670b00f41e8d3432e3536653.png?format=webp&quality=lossless" alt="PFP">
             <span>Tanmay <small>(Jr. Mod)</small></span>
         </div>
+
         <div class="staff-chip">
-            <img src="https://images-ext-1.discordapp.net/external/usO_oOOfxOcq0U5VzAt_eu4eYh8WKVaS1xdG3_6RBUI/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1292488541783195760/af9c11ac825b2002245bbdbfa512e316.png?format=webp&quality=lossless">
+            <img src="https://images-ext-1.discordapp.net/external/usO_oOOfxOcq0U5VzAt_eu4eYh8WKVaS1xdG3_6RBUI/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1292488541783195760/af9c11ac825b2002245bbdbfa512e316.png?format=webp&quality=lossless" alt="PFP">
             <span>Dorito <small>(Helper)</small></span>
         </div>
+
         <div class="staff-chip">
-            <img src="<div class="staff-chip">
-            <img src="https://images-ext-1.discordapp.net/external/usO_oOOfxOcq0U5VzAt_eu4eYh8WKVaS1xdG3_6RBUI/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1292488541783195760/af9c11ac825b2002245bbdbfa512e316.png?format=webp&quality=lossless">
-            <span>Dorito <small>(Helper)</small></span>
-        </div>">
+            <div class="mini-placeholder">WD</div> 
             <span>Walnut Dwarf <small>(Helper)</small></span>
         </div>
+
         <div class="staff-chip">
-            <img src="https://images-ext-1.discordapp.net/external/kvEYJctBeGwzo5MjlwG2K6xuJ5q8obheh7NvrRIf9Mo/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1172754397281918976/8898df62fbea236496e8c73ab5ad14c6.png?format=webp&quality=lossless">
+            <img src="https://images-ext-1.discordapp.net/external/kvEYJctBeGwzo5MjlwG2K6xuJ5q8obheh7NvrRIf9Mo/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1172754397281918976/8898df62fbea236496e8c73ab5ad14c6.png?format=webp&quality=lossless" alt="PFP">
             <span>Lester07 <small>(Helper)</small></span>
         </div>
     </div>
