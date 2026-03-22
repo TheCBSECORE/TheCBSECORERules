@@ -710,12 +710,12 @@
     display: block;
     border-radius: 10px;
 }        
-/* --- MOBILE  --- */
+/* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
     
-
+    /* 1. Fix the Trusted Bar */
     .trusted-bar-container {
-        flex-direction: column; 
+        flex-direction: column; /* Stack text above the PFPs */
         height: auto;
         padding: 20px 10px;
         width: 95%;
@@ -723,29 +723,29 @@
 
     .trusted-label {
         margin-right: 0;
-        margin-bottom: 15px;
+        margin-bottom: 15px; /* Add space between text and sliding PFPs */
         text-align: center;
     }
 
- 
+    /* 2. Fix the Moments/Compact Cards */
     .moment-compact-card {
         width: 98%;
         padding: 15px;
     }
 
     .moment-img-container {
-        max-height: 200px; 
+        max-height: 200px; /* Make images shorter so they don't take the whole screen */
     }
 
     .glow-header {
-        font-size: 1.5rem; 
+        font-size: 1.5rem; /* Shrink the glowing text so it doesn't wrap weirdly */
         letter-spacing: 2px;
     }
 
-    
+    /* 3. Fix the Navigation */
     .nav-links {
         gap: 10px;
-        flex-wrap: wrap; 
+        flex-wrap: wrap; /* Allows nav items to go to a second line if they don't fit */
         justify-content: center;
     }
 
@@ -753,12 +753,12 @@
         font-size: 0.8rem;
         padding: 5px 8px;
     }
+
+    /* 4. Fix Pomodoro */
     .timer-display {
-        font-size: 3.5rem; 
+        font-size: 3.5rem; /* Smaller numbers for mobile */
     }
-}        
-
-
+}  
     </style>
 
 <audio id="pomo-bg-music" loop>
