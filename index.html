@@ -815,6 +815,77 @@
     height: 2px;
     background: linear-gradient(to left, white, transparent);
 }       
+.moments-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px; 
+    padding-bottom: 100px;
+}
+
+/* Individual Card */
+.moment-card {
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.glow-header {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 8px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
+                 0 0 30px rgba(255, 215, 0, 0.4),
+                 0 0 60px rgba(255, 215, 0, 0.2);
+}
+
+.moment-image-wrapper {
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #111;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.moment-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: filter 0.5s ease;
+}
+
+
+.moment-card:hover .moment-image-wrapper {
+    transform: scale(1.02) translateY(-10px);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+
+.moment-info {
+    margin-top: 25px;
+}
+
+.moment-date {
+    font-family: 'monospace';
+    color: #FFD700; 
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.moment-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+#moments {
+    animation: fadeInPage 0.8s ease forwards;
+}        
     </style>
 
 <audio id="pomo-bg-music" loop>
@@ -862,6 +933,34 @@
         </div>
     </div>
 </div>
+
+<section id="moments" class="page-section" style="display: none; padding-top: 100px;">
+    <div class="moments-container">
+        
+        <div class="moment-card">
+            <h1 class="glow-header">Republic Day</h1>
+            <div class="moment-image-wrapper">
+                <img src="https://media.discordapp.net/attachments/1455967861884584018/1465060611749842964/image.png?ex=69c0e6c5&is=69bf9545&hm=dc2603cf5b5c7f380b3a8bc8c8a25ac7a85434d414532047e24528b06933e934&=&format=webp&quality=lossless" alt="Republic Day Celebration">
+            </div>
+            <div class="moment-info">
+                <p class="moment-date">January 2026</p>
+                <p class="moment-text">Celebrating Nation's 77th Republic Day!</p>
+            </div>
+        </div>
+
+        <div class="moment-card">
+            <h1 class="glow-header">?</h1>
+            <div class="moment-image-wrapper">
+                <img src="moment2.png" alt="?">
+            </div>
+            <div class="moment-info">
+                <p class="moment-date">? 2026</p>
+                <p class="moment-text">?</p>
+            </div>
+        </div>
+
+        </div>
+</section>
     
 <section id="main" class="page-section active">
     <div class="server-banner"></div>
@@ -1698,6 +1797,25 @@ function resetTimer() {
 
 </script>
 
+<script>
+
+function showSection(sectionId) {
+    // Hide all sections that have the class 'page-section'
+    const sections = document.querySelectorAll('.page-section');
+    sections.forEach(s => s.style.display = 'none');
+
+    // Show the one we want
+    const target = document.getElementById(sectionId);
+    if (target) {
+        target.style.display = 'block';
+    }
+
+    // Scroll to top automatically so they see the first moment
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+</script>
+    
 <script>
 function startLoading() {
     const fill = document.querySelector('.progress-fill');
