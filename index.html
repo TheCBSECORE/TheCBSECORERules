@@ -886,6 +886,31 @@
 #moments {
     animation: fadeInPage 0.8s ease forwards;
 }        
+.fullscreen-icon {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.6rem; 
+    cursor: pointer;
+    margin-left: 15px;
+    vertical-align: middle;
+    transition: 0.3s;
+}
+
+.fullscreen-icon:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.pomo-wrapper:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0;
+}        
     </style>
 
 <audio id="pomo-bg-music" loop>
@@ -1218,6 +1243,7 @@ CBSE CORE is where discipline meets enjoyment. Join us and stop prepping alone.
             <div class="action-btns">
                 <button onclick="toggleTimer()" id="start-btn" class="main-start-btn">START</button>
                 <button onclick="resetTimer()" class="reset-icon" title="Reset Timer">↻</button>
+                <button onclick="toggleFullScreen()" class="fullscreen-icon" title="Full Screen">⛶</button>
             </div>
 
             <p style="font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-top: 20px;">
@@ -1796,6 +1822,23 @@ function resetTimer() {
     updateDisplay();
 }
 
+function toggleFullScreen() {
+    const elem = document.querySelector('.pomo-wrapper');
+
+    if (!document.fullscreenElement) {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { 
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { 
+            elem.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
+}    
 </script>
 
 <script>
