@@ -643,7 +643,6 @@
     width: 100%;
     overflow: hidden;
     position: relative;
-    /* Edge fade effect */
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
@@ -669,7 +668,7 @@
 }
 @keyframes infinite-scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Jumps back to start seamlessly */
+    100% { transform: translateX(-50%); } 
 }
 .section-divider {
     text-align: center;
@@ -1572,7 +1571,6 @@ function resetTimer() {
 
 <script>
   const slider = document.getElementById('member-slider');
-  // This duplicates the images inside the slider automatically
   slider.innerHTML += slider.innerHTML;
 </script>
     
