@@ -710,48 +710,6 @@
     display: block;
     border-radius: 10px;
 }        
-@media (max-width: 768px) {
-    /* Stack Logo on top, Links on bottom */
-    nav {
-        flex-direction: column !important;
-        height: auto !important;
-        padding: 15px 0 !important;
-        align-items: center !important;
-    }
-
-    /* Give branding its own space */
-    .nav-brand-transparent {
-        margin-bottom: 15px;
-        justify-content: center;
-    }
-
-    /* Fix the links so they don't overlap */
-    .nav-links {
-        display: flex !important;
-        flex-wrap: wrap !important; /* This pushes links to a 2nd line if they don't fit */
-        justify-content: center !important;
-        gap: 10px !important;
-        width: 100% !important;
-        padding: 0 10px !important;
-    }
-
-    .nav-links li {
-        margin: 0 !important;
-    }
-
-    .nav-links li a {
-        font-size: 0.7rem !important; /* Smaller text for mobile */
-        padding: 5px 10px !important;
-        white-space: nowrap; /* Prevents text like 'Server Guide' from breaking */
-        background: rgba(255, 255, 255, 0.05); /* Adds a button-like feel */
-        border-radius: 4px;
-    }
-
-    /* Hide sub-text to save space */
-    .brand-sub-text {
-        display: none;
-    }
-}
     </style>
 
 <audio id="pomo-bg-music" loop>
