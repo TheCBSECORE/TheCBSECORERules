@@ -724,7 +724,6 @@
     overflow: hidden;
 }
 
-/* Massive Spreading Glow */
 .glow-bg {
     position: absolute;
     width: 800px;
@@ -746,7 +745,6 @@
     text-align: center;
 }
 
-/* Circular Logo with Bright Border */
 .circular-logo {
     width: 140px;
     height: 140px;
@@ -765,7 +763,6 @@
     text-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
-/* Loading Bar Alignment */
 .loading-section {
     width: 280px;
     margin: 0 auto;
@@ -781,7 +778,7 @@
 
 .progress-fill {
     height: 100%;
-    width: 40%; /* Adjust or animate via JS */
+    width: 40%; 
     background: var(--core-blue);
     box-shadow: 0 0 15px var(--core-blue);
     border-radius: 10px;
@@ -794,7 +791,6 @@
     margin-top: 12px;
 }
 
-/* Big Comets */
 .comet {
     position: absolute;
     height: 2px;
@@ -850,7 +846,7 @@
     
     <div class="intro-content">
         <div class="logo-wrapper">
-            <img src="core.png" alt="Core Logo" class="circular-logo">
+            <img src="Core.png" alt="Core Logo" class="circular-logo">
         </div>
         <h1 class="brand-name">THE CBSE CORE</h1>
         <div class="loading-section">
@@ -862,7 +858,6 @@
     </div>
 </div>
     
-<!-- SECTION: MAIN / ABOUT -->
 <section id="main" class="page-section active">
     <div class="server-banner"></div>
     
@@ -874,7 +869,6 @@
     </div>
 
     <div class="grid" style="margin-top: 40px;">
-        <!-- LIVE VC CARD -->
         <div class="card" style="border-top: 4px solid var(--accent-blue); min-height: 200px;">
             <h3 style="font-family:'Oswald'; font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 10px;">
                 <span style="color: var(--accent-blue)">🔊</span> LIVE IN VOICE CHANNELS
@@ -884,7 +878,6 @@
             </div>
         </div>
 
-        <!-- STATS CARD -->
         <div class="card" style="border-top: 4px solid var(--accent-red);">
             <h3 style="font-family:'Oswald'; font-size: 1.1rem; margin-top: 0; display: flex; align-items: center; gap: 10px;">
                 <span style="color: var(--accent-red)">📊</span> SERVER STATUS
@@ -1701,8 +1694,8 @@ function setMode(mode, mins, btn) {
 function resetTimer() {
     clearInterval(timer);
     isRunning = false;
-    document.getElementById('pomo-bg-music').pause(); // Stops the music
-    document.getElementById('pomo-bg-music').currentTime = 0; // Rewinds to start
+    document.getElementById('pomo-bg-music').pause(); 
+    document.getElementById('pomo-bg-music').currentTime = 0; 
     document.getElementById('start-btn').innerText = 'START';
     
     // Reset based on mode
@@ -1719,19 +1712,17 @@ function resetTimer() {
 // 1. Function to handle the Loading Bar
 function startLoading() {
     const fill = document.querySelector('.progress-fill');
-    const intro = document.getElementById('intro-overlay'); // Make sure your main div has this ID
+    const intro = document.getElementById('intro-overlay'); 
     let width = 0;
     
     const interval = setInterval(() => {
         if (width >= 100) {
             clearInterval(interval);
             
-            // 1. Add a fade-out class or style
             intro.style.transition = "opacity 1s ease-out, visibility 1s";
             intro.style.opacity = "0";
             intro.style.visibility = "hidden";
 
-            // 2. Completely remove it from the DOM after it fades
             setTimeout(() => {
                 intro.remove(); 
             }, 1000);
@@ -1742,16 +1733,14 @@ function startLoading() {
             if(width > 100) width = 100;
             fill.style.width = width + '%';
         }
-    }, 40); // Controls how smooth the bar moves
+    }, 40); 
 }
 
-// 2. Function for the Sideways/Drifting Comets
 function spawnDriftingComet() {
     const container = document.getElementById('comet-container');
     const comet = document.createElement('div');
     comet.className = 'comet';
     
-    // Start from various points on the right/top to drift left/down
     const startY = Math.random() * window.innerHeight;
     const startX = window.innerWidth + 100;
     
@@ -1760,7 +1749,6 @@ function spawnDriftingComet() {
     
     container.appendChild(comet);
 
-    // Drifting animation: Moving across and slightly down
     comet.animate([
         { transform: 'translateX(0) translateY(0) rotate(-15deg)', opacity: 0 },
         { transform: 'translateX(-400px) translateY(100px) rotate(-15deg)', opacity: 1, offset: 0.2 },
@@ -1771,9 +1759,8 @@ function spawnDriftingComet() {
     }).onfinish = () => comet.remove();
 }
 
-// Initialize
 startLoading();
-setInterval(spawnDriftingComet, 150); // Faster spawn rate for "starfield" feel
+setInterval(spawnDriftingComet, 150);
 </script>
     
 <script>
