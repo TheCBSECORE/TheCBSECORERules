@@ -911,6 +911,36 @@
     border: none;
     border-radius: 0;
 }        
+#server-nav .card {
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    #server-nav .card .channel-link {
+        font-size: 0.8rem; 
+    }
+}
+
+.channel-link {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    margin: 4px 0;
+    color: #7289da;
+    text-decoration: none;
+    background: rgba(114, 137, 218, 0.05);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.channel-link:hover {
+    background: rgba(114, 137, 218, 0.2);
+    color: #fff;
+    transform: translateX(5px);
+}        
     </style>
 
 <audio id="pomo-bg-music" loop>
@@ -938,6 +968,7 @@
         <li><a onclick="showSection('moments')">Moments</a></li>
         <li><a onclick="showSection('faq')">FAQ</a></li>
         <li><a onclick="showSection('socials')">Socials</a></li>
+        <li><a onclick="showSection('server-nav')">Server Navigation</a></li>
         <li><a onclick="showSection('pomodoro')">Pomodoro</a></li>
     </ul>
 </nav>
@@ -1223,6 +1254,174 @@ CBSE CORE is where discipline meets enjoyment. Join us and stop prepping alone.
     
 </section>
 
+<section id="server-nav" class="page-section" style="display: none;">
+    <h2 class="section-header"><span style="color:var(--accent-blue)">🧭</span> SERVER NAVIGATION</h2>
+    
+    <h3 class="guide-cat">｜・RULES・｜</h3>
+    <div class="grid">
+        <div class="card rule-card">
+            <a href="https://discord.com/channels/1312809906986024960/1313521219877994506" target="_blank" class="channel-link">ʚ🔥┊rules</a>
+            <a href="https://discord.com/channels/1312809906986024960/1477387598048530593" target="_blank" class="channel-link">ʚ⌛┊timeless・role・claim</a>
+        </div>
+    </div>
+
+    <h3 class="guide-cat">WELCOME!</h3>
+    <div class="grid">
+        <div class="card rule-card">
+            <a href="https://discord.com/channels/1312809906986024960/1453809583205384273" target="_blank" class="channel-link">ʚ꒰👏꒱┊welcome</a>
+            <a href="https://discord.com/channels/1312809906986024960/1475837601268240385" target="_blank" class="channel-link">ʚ꒰👋🏻꒱┊introduction</a>
+        </div>
+    </div>
+
+    <h3 class="guide-cat">｜・Main ・｜</h3>
+    <div class="grid">
+        <div class="card rule-card">
+            <a href="https://discord.com/channels/1312809906986024960/1312811245673386045" target="_blank" class="channel-link">╭꒰📢꒱┊announcement</a>
+            <a href="https://discord.com/channels/1312809906986024960/1468319620598595668" target="_blank" class="channel-link">┊꒰📖꒱┊server・guide</a>
+            <a href="https://discord.com/channels/1312809906986024960/1480937953898528830" target="_blank" class="channel-link">┊꒰🎉꒱┊events</a>
+            <a href="https://discord.com/channels/1312809906986024960/1471106680170352879" target="_blank" class="channel-link">┊꒰⭐꒱┊starboard</a>
+            <a href="https://discord.com/channels/1312809906986024960/1455130744778260737" target="_blank" class="channel-link">┊꒰🔝꒱┊roles</a>
+            <a href="https://discord.com/channels/1312809906986024960/1468651603732074680" target="_blank" class="channel-link">┊꒰🔖꒱┊staff・application</a>
+            <a href="https://discord.com/channels/1312809906986024960/1481713154592604161" target="_blank" class="channel-link">╰꒰🟢꒱┊bot・update</a>
+        </div>
+    </div>
+
+    <h3 class="guide-cat">｜・Study Atrium・｜</h3>
+    <div class="grid">
+        <div class="card rule-card">
+            <a href="https://discord.com/channels/1312809906986024960/1468896045818712084" target="_blank" class="channel-link">╭꒰🗞️꒱┊journaling</a>
+            <a href="https://discord.com/channels/1312809906986024960/1468896312077586475" target="_blank" class="channel-link">┊꒰📚꒱┊study・tips・advice</a>
+            <a href="https://discord.com/channels/1312809906986024960/1476022254159663134" target="_blank" class="channel-link">┊꒰☕꒱┊level・up</a>
+            <a href="https://discord.com/channels/1312809906986024960/1485274410255515801" target="_blank" class="channel-link">┊꒰📘꒱┊lf・study・buddies</a>
+            <a href="https://discord.com/channels/1312809906986024960/1483102186396323972" target="_blank" class="channel-link">┊꒰😶‍🌫️꒱┊vent</a>
+            <a href="https://discord.com/channels/1312809906986024960/1483515514130272458" target="_blank" class="channel-link">╰꒰📁꒱┊resources</a>
+        </div>
+    </div>
+
+    <h3 class="guide-cat">｜・Lounge・｜</h3>
+    <div class="grid">
+        <div class="card rule-card">
+            <a href="https://discord.com/channels/1312809906986024960/1453825824355647690" target="_blank" class="channel-link">╭꒰🌍꒱┊chat</a>
+            <a href="https://discord.com/channels/1312809906986024960/1453811191469179022" target="_blank" class="channel-link">┊꒰🤖꒱┊bot・commands</a>
+            <a href="https://discord.com/channels/1312809906986024960/1312811257371426899" target="_blank" class="channel-link">┊꒰📺꒱┊media・and・memes</a>
+            <a href="https://discord.com/channels/1312809906986024960/1455950962777784545" target="_blank" class="channel-link">┊꒰✍️꒱┊creativity</a>
+            <a href="https://discord.com/channels/1312809906986024960/1458850507593613426" target="_blank" class="channel-link">┊꒰📸꒱┊clicks</a>
+            <a href="https://discord.com/channels/1312809906986024960/1475514360200958181" target="_blank" class="channel-link">┊꒰🤖꒱┊ask・ai</a>
+            <a href="https://discord.com/channels/1312809906986024960/1462117946657869906" target="_blank" class="channel-link">┊꒰💋꒱┊truth・dare</a>
+            <a href="https://discord.com/channels/1312809906986024960/1312811259443544107" target="_blank" class="channel-link">┊꒰🎫꒱┊support</a>
+            <a href="https://discord.com/channels/1312809906986024960/1485359098290769960" target="_blank" class="channel-link">┊꒰🪐꒱┊cbsecore・core</a>
+            <a href="https://discord.com/channels/1312809906986024960/1453823848955777146" target="_blank" class="channel-link">╰꒰📰꒱┊suggestions</a>
+        </div>
+    </div>
+
+    <h3 class="guide-cat">｜・Core Economy・｜</h3>
+    <div class="grid">
+        <div class="card rule-card">
+            <a href="https://discord.com/channels/1312809906986024960/1474352862816505878" target="_blank" class="channel-link">╭꒰🪙꒱┊core・1</a>
+            <a href="https://discord.com/channels/1312809906986024960/1474352862816505878" target="_blank" class="channel-link">┊꒰🪙꒱┊core・2</a>
+            <a href="https://discord.com/channels/1312809906986024960/1475083772692136068" target="_blank" class="channel-link">╰꒰🪙꒱┊core・3</a>
+        </div>
+    </div>
+
+    <h3 class="guide-cat">｜・Study Materials・｜</h3>
+    <div class="grid">
+        <div class="card rule-card">
+            <a href="https://discord.com/channels/1312809906986024960/1453783691242377438" target="_blank" class="channel-link">╭꒰📃꒱┊question・papers</a>
+            <a href="https://discord.com/channels/1312809906986024960/1453808063831343215" target="_blank" class="channel-link">┊꒰❓꒱┊resource・request</a>
+            <a href="https://discord.com/channels/1312809906986024960/1472885449407332422" target="_blank" class="channel-link">┊꒰📕꒱┊resource・log</a>
+            <a href="https://discord.com/channels/1312809906986024960/1453793695387095113" target="_blank" class="channel-link">╰꒰🌌꒱┊all・resources</a>
+        </div>
+    </div>
+
+    <h3 class="guide-cat">｜・Class IX・｜</h3>
+    <div class="grid">
+        <div class="card rule-card">
+            <a href="https://discord.com/channels/1312809906986024960/1468645564542357681" target="_blank" class="channel-link">╭꒰📢꒱┊announcement・ix</a>
+            <a href="https://discord.com/channels/1312809906986024960/1477632994104840446" target="_blank" class="channel-link">┊꒰💯꒱┊daily・mcq・ix</a>
+            <a href="https://discord.com/channels/1312809906986024960/1465300552719138866" target="_blank" class="channel-link">┊꒰🤓꒱┊science・doubt・ix</a>
+            <a href="https://discord.com/channels/1312809906986024960/1465300585208086763" target="_blank" class="channel-link">┊꒰🤓꒱┊maths・doubt・ix</a>
+            <a href="https://discord.com/channels/1312809906986024960/1465300513208664218" target="_blank" class="channel-link">┊꒰🤓꒱┊sst・ix</a>
+            <a href="https://discord.com/channels/1312809906986024960/1477622305277477035" target="_blank" class="channel-link">┊꒰🤓꒱┊other・doubt・ix</a>
+            <a href="https://discord.com/channels/1312809906986024960/1465300193820938405" target="_blank" class="channel-link">╰꒰✅꒱┊vouch・ix</a>
+        </div>
+    </div>
+
+    <h3 class="guide-cat">｜・Class X・｜</h3>
+    <div class="grid">
+        <div class="card rule-card">
+            <a href="https://discord.com/channels/1312809906986024960/1468645777227387014" target="_blank" class="channel-link">╭꒰📢꒱┊announcement・x</a>
+            <a href="https://discord.com/channels/1312809906986024960/1477633011150491846" target="_blank" class="channel-link">┊꒰💯꒱┊daily・mcq・x</a>
+            <a href="https://discord.com/channels/1312809906986024960/1313505453875134554" target="_blank" class="channel-link">┊꒰🤓꒱┊science・doubt・x</a>
+            <a href="https://discord.com/channels/1312809906986024960/1453794370279964742" target="_blank" class="channel-link">┊꒰🤓꒱┊maths・doubt・x</a>
+            <a href="https://discord.com/channels/1312809906986024960/1453794507236835399" target="_blank" class="channel-link">┊꒰🤓꒱┊sst・doubt・x</a>
+            <a href="https://discord.com/channels/1312809906986024960/1477632187753959524" target="_blank" class="channel-link">┊꒰🤓꒱┊other・doubt・x</a>
+            <a href="https://discord.com/channels/1312809906986024960/1461448961016725812" target="_blank" class="channel-link">╰꒰✅꒱┊vouch・x</a>
+        </div>
+    </div>
+
+    <h3 class="guide-cat">｜・Interests・｜</h3>
+    <div class="grid">
+        <div class="card rule-card">
+            <a href="https://discord.com/channels/1312809906986024960/1453832327456362638" target="_blank" class="channel-link">╭꒰🏎️꒱┊f1・discussions</a>
+            <a href="https://discord.com/channels/1312809906986024960/1453832456930066554" target="_blank" class="channel-link">┊꒰♟️꒱┊chess・discussions</a>
+            <a href="https://discord.com/channels/1312809906986024960/1477769436596404326" target="_blank" class="channel-link">┊꒰🌐꒱┊geopolitical・discussion</a>
+            <a href="https://discord.com/channels/1312809906986024960/1454028311264235613" target="_blank" class="channel-link">┊꒰✨꒱┊Streaming</a>
+            <a href="https://discord.com/channels/1312809906986024960/1462012147507925125" target="_blank" class="channel-link">┊꒰🎮꒱┊Gaming</a>
+            <a href="https://discord.com/channels/1312809906986024960/1483869633625985055" target="_blank" class="channel-link">╰꒰👩🏻‍💻꒱┊DEV Room</a>
+        </div>
+    </div>
+
+<h3 class="guide-cat">| • Chill VCs • |</h3>
+<div class="grid">
+    <div class="card rule-card">
+        <a href="https://discord.com/channels/1312809906986024960/1462042637526765589" target="_blank" class="channel-link">╭꒰☕꒱┊Chill・Convo・1</a>
+        <a href="https://discord.com/channels/1312809906986024960/1462391476737675490" target="_blank" class="channel-link">┊꒰🥖꒱┊Chill・Convo・2</a>
+        <a href="https://discord.com/channels/1312809906986024960/1466876408398745621" target="_blank" class="channel-link">┊꒰🥐꒱┊Chill・Convo・3</a>
+        <a href="https://discord.com/channels/1312809906986024960/1470501411853701304" target="_blank" class="channel-link">┊꒰🥨꒱┊Chill・Convo・4</a>
+        <a href="https://discord.com/channels/1312809906986024960/1467983114503458848" target="_blank" class="channel-link">╰꒰💤꒱┊AFK</a>
+    </div>
+</div>
+
+<h3 class="guide-cat">｜・Cam・VCs・｜</h3>
+<div class="grid">
+    <div class="card rule-card" style="border-top-color: #00f5d4;">
+        <a href="https://discord.com/channels/1312809906986024960/1457768249432211652" target="_blank" class="channel-link">╭ CAM・ Study・Room・1</a>
+        <a href="https://discord.com/channels/1312809906986024960/1457768294546407476" target="_blank" class="channel-link">┆ CAM・ Study・Room・2</a>
+        <a href="https://discord.com/channels/1312809906986024960/1471514467874504929" target="_blank" class="channel-link">┆ CAM・ Study・Room・3</a>
+        <a href="https://discord.com/channels/1312809906986024960/1471514652528611430" target="_blank" class="channel-link">┆ CAM・ Study・Room・4</a>
+        <a href="https://discord.com/channels/1312809906986024960/1457768376196796628" target="_blank" class="channel-link">╰ CAM・ Study・Room・5</a>
+    </div>
+</div>
+
+<h3 class="guide-cat">| • Study VCs • |</h3>
+<div class="grid">
+    <div class="card rule-card" style="border-top-color: var(--accent-blue);">
+        <a href="https://discord.com/channels/1312809906986024960/1483480963387359453" target="_blank" class="channel-link">╭꒰🔊꒱┊study・general</a>
+        <a href="https://discord.com/channels/1312809906986024960/1453810091303244008" target="_blank" class="channel-link">┆ Live・Classes</a>
+        <a href="https://discord.com/channels/1312809906986024960/1453808875680694352" target="_blank" class="channel-link">┆ Study・Room・1</a>
+        <a href="https://discord.com/channels/1312809906986024960/1466076821807304756" target="_blank" class="channel-link">┆ Study・Room・2</a>
+        <a href="https://discord.com/channels/1312809906986024960/1453809149426012323" target="_blank" class="channel-link">┆ Study・Room・3</a>
+        <a href="https://discord.com/channels/1312809906986024960/1461260288757203009" target="_blank" class="channel-link">┆ Study・Room・4</a>
+        <a href="https://discord.com/channels/1312809906986024960/1453809752525111438" target="_blank" class="channel-link">┆ Study・Room・5</a>
+        <a href="https://discord.com/channels/1312809906986024960/1453809822712467477" target="_blank" class="channel-link">┆ Study・Room・6</a>
+        <a href="https://discord.com/channels/1312809906986024960/1484603674813792276" target="_blank" class="channel-link">┆ Study・Room・7</a>
+        <a href="https://discord.com/channels/1312809906986024960/1456660205981929585" target="_blank" class="channel-link">┆ Study・Room・8</a>
+        <a href="https://discord.com/channels/1312809906986024960/1463447251157389497" target="_blank" class="channel-link">┆ Study・Room・9</a>
+        <a href="https://discord.com/channels/1312809906986024960/1460185279284645982" target="_blank" class="channel-link">┆ Study・Room・10</a>
+        <a href="https://discord.com/channels/1312809906986024960/1461029055506940019" target="_blank" class="channel-link">┆ Study・Room・11</a>
+        <a href="https://discord.com/channels/1312809906986024960/1461029105091874876" target="_blank" class="channel-link">┆ Study・Room・12</a>
+        <a href="https://discord.com/channels/1312809906986024960/1312811244503171102" target="_blank" class="channel-link">╰ Lofi・Study・Room</a>
+    </div>
+</div>
+
+<div class="grid" style="margin-top: 20px;">
+    <div class="card rule-card" style="border-top-color: #ffb703;">
+        <a href="https://discord.com/channels/1312809906986024960/1454725942437220486" target="_blank" class="channel-link">« 🏝️ » NotLaksh's・Island</a>
+        <a href="https://discord.com/channels/1312809906986024960/1471559831289598104" target="_blank" class="channel-link">« 🔊 » Join To Create</a>
+    </div>
+</div>
+</section>
+    
 <section id="pomodoro" class="page-section" style="display: none; padding-top: 100px;">
     <div class="pomo-wrapper">
         <video autoplay muted loop id="pomo-video-bg">
